@@ -5,8 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ball
-  - Brick
   - WallTrigger
+  - Stone
+  - Ice
+  - AlienIce
+  - ItemIce
+  - Brick
   layers:
   - Default
   - TransparentFX
@@ -16,11 +20,11 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ball
+  - Bar
+  - Brick
+  - Alien
+  - Item
   - 
   - 
   - 

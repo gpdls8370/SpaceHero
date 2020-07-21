@@ -11,6 +11,7 @@ public class BrickManager : MonoBehaviour
 
     public float initialBrickSpawnPosX;
     public float initialBrickSpawnPosY;
+    public float brick2_Distance;
     public float bricksDistanceX;    //블록 사이 간격
     public float bricksDistanceY;
 
@@ -41,29 +42,37 @@ public class BrickManager : MonoBehaviour
                 switch (nowLevelBrickData[row, col])
                 {
                     case 0:        //빈칸
-                        Instantiate(Resources.Load("Brick"), new Vector2(initialBrickSpawnPosX + bricksDistanceX * col, initialBrickSpawnPosY - bricksDistanceY * row), Quaternion.identity);
+                        //
                         break;
 
                     case 1:         //1칸 암석
-                        //
+                        Instantiate(Resources.Load("Prefabs/Stone1"), new Vector2(initialBrickSpawnPosX + bricksDistanceX * col, initialBrickSpawnPosY - bricksDistanceY * row), Quaternion.identity);
                         break;
 
                     case 2:         //2칸 암석
-                        //
+                        Instantiate(Resources.Load("Prefabs/Stone2"), new Vector2(initialBrickSpawnPosX + bricksDistanceX * col + brick2_Distance, initialBrickSpawnPosY - bricksDistanceY * row), Quaternion.identity);
                         break;
 
                     case 3:         //1칸 얼음
-                        //
+                        Instantiate(Resources.Load("Prefabs/Ice1"), new Vector2(initialBrickSpawnPosX + bricksDistanceX * col, initialBrickSpawnPosY - bricksDistanceY * row), Quaternion.identity);
                         break;
 
                     case 4:         //2칸 얼음
-                        //
+                        Instantiate(Resources.Load("Prefabs/Ice2"), new Vector2(initialBrickSpawnPosX + bricksDistanceX * col + brick2_Distance, initialBrickSpawnPosY - bricksDistanceY * row), Quaternion.identity);
                         break;
 
-                    case 5:         //아이템 얼음
-                        //
+                    case 5:         //외계인 얼음
+                        Instantiate(Resources.Load("Prefabs/AlienIce"), new Vector2(initialBrickSpawnPosX + bricksDistanceX * col, initialBrickSpawnPosY - bricksDistanceY * row), Quaternion.identity);
                         break;
 
+                    case 6:         //아이템 얼음
+                        Instantiate(Resources.Load("Prefabs/ItemIce"), new Vector2(initialBrickSpawnPosX + bricksDistanceX * col, initialBrickSpawnPosY - bricksDistanceY * row), Quaternion.identity);
+                        break;
+
+                    case 7:
+                        Instantiate(Resources.Load("Prefabs/Block"), new Vector2(initialBrickSpawnPosX + bricksDistanceX * col, initialBrickSpawnPosY - bricksDistanceY * row), Quaternion.identity);
+                        break;
+                    
                     default:
                         //else 부분
                         break;
