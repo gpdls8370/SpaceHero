@@ -6,7 +6,7 @@ public class Item : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.name == "Bar")
+        if (collision.gameObject.name == "Bar")
         {
             Destroy(this.gameObject);
         }
