@@ -36,11 +36,37 @@ public class BrickManager : MonoBehaviour
         {
             for (int col = 0; col < maxCol; col++)
             {
-                //해당 칸의 brick 데이터가 '1'이면 오브젝트 스폰
-                if (nowLevelBrickData[row, col] == 1)
+                //오브젝트 스폰
+                //Quaternion.identity == 회전 없음 이라는 뜻
+                switch (nowLevelBrickData[row, col])
                 {
-                    //Quaternion.identity == 회전 없음 이라는 뜻
-                    Instantiate(Resources.Load("Brick"), new Vector2(initialBrickSpawnPosX + bricksDistanceX * col, initialBrickSpawnPosY - bricksDistanceY * row), Quaternion.identity);
+                    case 0:        //빈칸
+                        Instantiate(Resources.Load("Brick"), new Vector2(initialBrickSpawnPosX + bricksDistanceX * col, initialBrickSpawnPosY - bricksDistanceY * row), Quaternion.identity);
+                        break;
+
+                    case 1:         //1칸 암석
+                        //
+                        break;
+
+                    case 2:         //2칸 암석
+                        //
+                        break;
+
+                    case 3:         //1칸 얼음
+                        //
+                        break;
+
+                    case 4:         //2칸 얼음
+                        //
+                        break;
+
+                    case 5:         //아이템 얼음
+                        //
+                        break;
+
+                    default:
+                        //else 부분
+                        break;
                 }
             }
         }
