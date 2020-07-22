@@ -2581,8 +2581,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a8660b06dd37f8488c4a17a289f8b5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barSpeedField: {fileID: 0}
-  ballSpeedField: {fileID: 0}
+  barSpeedField: {fileID: 307893236}
+  ballSpeedField: {fileID: 1938125362}
 --- !u!1 &1837490043
 GameObject:
   m_ObjectHideFlags: 0
