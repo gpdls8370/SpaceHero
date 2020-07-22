@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Brick : MonoBehaviour
 {
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //박스가 공이랑 부딪히면 없애기
