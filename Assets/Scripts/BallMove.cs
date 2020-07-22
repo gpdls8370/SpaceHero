@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class BallMove : MonoBehaviour
 {
-    public int speed;
+    public float speed;
     private Rigidbody2D BallRb;
 
     void Start()
     {
-        // speed = float.Parse(GameObject.Find("BallSpeed").GetComponent<InputField>().text);
+        speed = GameManagement.ballSpeed;
 
         BallRb = GetComponent<Rigidbody2D>();
         BallRb.isKinematic = false;

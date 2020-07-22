@@ -5,12 +5,15 @@ using UnityEngine.UI;
 
 public class ResetBtn : MonoBehaviour
 {
-    public GameObject barSpeed;
-    public GameObject ballSpeed;
+    public GameObject barSpeedField;
+    public GameObject ballSpeedField;
 
     public void ResetSpeed()
     {
-        barSpeed.GetComponent<InputField>().text = "4";
-        ballSpeed.GetComponent<InputField>().text = "300";
+        barSpeedField.GetComponent<InputField>().text = "4";
+        GameManagement.barSpeed = 4f;
+
+        ballSpeedField.GetComponent<InputField>().text = "300";
+        GameManagement.ballSpeed = 300f;
     }
 }

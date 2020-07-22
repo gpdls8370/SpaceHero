@@ -11,6 +11,16 @@ public class StartBtn : MonoBehaviour
     {
         DontDestroyOnLoad(optionCanvas);
         optionCanvas.SetActive(false);
+
+        if (GameManagement.barSpeed <= 0f)
+        {
+            GameManagement.barSpeed = 4f;
+        }
+        if (GameManagement.ballSpeed <= 0f)
+        {
+            GameManagement.ballSpeed = 300f;
+        }
+
         SceneManager.LoadScene("MainScene");
     }
 }

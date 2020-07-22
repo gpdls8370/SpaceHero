@@ -23,7 +23,7 @@ public class BrickManager : MonoBehaviour
     {
         //시작하면 레벨데이터 불러오기
         this.LevelsData = this.LoadLevelsData();
-        spawnBrick();
+        //spawnBrick();
 
     }
 
