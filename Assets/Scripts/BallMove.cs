@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class BallMove : MonoBehaviour
 {
-    public int speed;
+    public float speed;
     private Rigidbody2D BallRb;
 
     void Start()
     {
+        speed = GameManagement.ballSpeed;
+
         BallRb = GetComponent<Rigidbody2D>();
         BallRb.isKinematic = false;
         BallRb.AddForce(new Vector2(0, speed));
