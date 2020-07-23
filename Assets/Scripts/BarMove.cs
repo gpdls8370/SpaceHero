@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BarMove : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class BarMove : MonoBehaviour
 
     private float initSpeed;
 
-    private int ballSpeed;
+    private float ballSpeed;
     private float xForce, yForce;
 
     private float gap;
@@ -21,8 +22,10 @@ public class BarMove : MonoBehaviour
 
     void Start()
     {
+        speed = GameManagement.barSpeed;
         ballSpeed = GameObject.Find("Ball").GetComponent<BallMove>().speed;
         initSpeed = speed;
+
         leftWallCol = false;
         rightWallCol = false;
     }
@@ -71,7 +74,6 @@ public class BarMove : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
         //막대가 공이랑 부딪히면
         if (collision.gameObject.tag == "Ball")
         { 
