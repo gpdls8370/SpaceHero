@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Brick : MonoBehaviour
+public class animBrick : MonoBehaviour
 {
     private Animator anim;
 
