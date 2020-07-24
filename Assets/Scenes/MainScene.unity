@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 370531415}
   m_Layer: 9
   m_Name: Bar
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -389,7 +389,7 @@ GameObject:
   - component: {fileID: 436364848}
   m_Layer: 9
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1049,6 +1049,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1583511846}
   - component: {fileID: 1583511845}
+  - component: {fileID: 1583511847}
   m_Layer: 0
   m_Name: BrickManager
   m_TagString: Untagged
@@ -1063,14 +1064,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1583511844}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 348bb1a80c04d8945b5a430f4b90a002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   initialBrickSpawnPosX: -1.8
   initialBrickSpawnPosY: 3.8
-  brick2_Distance: 0.6
   bricksDistanceX: 1.2
   bricksDistanceY: 0.8
   nowLevel: 0
@@ -1088,6 +1088,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1583511847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583511844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf2f9f0c6b4e3846a5c40cfa03d3270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeBlock:
+  - {fileID: 5235632317140014768, guid: 62745e270aec1284faf999ad1653e76d, type: 3}
+  - {fileID: 5235632317140014768, guid: 62745e270aec1284faf999ad1653e76d, type: 3}
+  - {fileID: 9078728313375942575, guid: 77de2f69d20703b4f84e05b0e70047f5, type: 3}
+  - {fileID: 9078728313375942575, guid: 77de2f69d20703b4f84e05b0e70047f5, type: 3}
+  - {fileID: 4112092507604542561, guid: 1f3a1d59ef2bc3e4bb3aed86a0686183, type: 3}
+  - {fileID: 4112092507604542561, guid: 1f3a1d59ef2bc3e4bb3aed86a0686183, type: 3}
+  - {fileID: 4112092507604542561, guid: 1f3a1d59ef2bc3e4bb3aed86a0686183, type: 3}
+  - {fileID: 918662362746297932, guid: e9e930cc6707fa647b1262e2299d5de4, type: 3}
+  - {fileID: 918662362746297932, guid: e9e930cc6707fa647b1262e2299d5de4, type: 3}
+  initialBrickSpawnPosX: -1.8
+  initialBrickSpawnPosY: 3.8
+  bricksDistanceX: 1.2
+  bricksDistanceY: 0.8
+  nowLevel: 0
 --- !u!1 &1604428141
 GameObject:
   m_ObjectHideFlags: 0

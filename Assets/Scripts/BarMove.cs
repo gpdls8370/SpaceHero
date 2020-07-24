@@ -42,7 +42,7 @@ public class BarMove : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.RightArrow) && !rightWallCol && !Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.Translate(Vector3.right * speed * Time.deltaTime);
+            transform.Translate(Vector2.right * speed * Time.deltaTime);
         }
         if (Input.GetKeyDown(KeyCode.L))
         {

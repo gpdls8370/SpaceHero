@@ -10,7 +10,7 @@ public class Brick : MonoBehaviour
         //박스가 공이랑 부딪히면 없애기
         if(collision.gameObject.tag == "Ball")
         {
-            if (this.gameObject.tag == "Stone" || this.gameObject.tag == "Ice")
+            if (this.gameObject.tag == "Brick")
             {
                 Destroy(this.gameObject);
             }
