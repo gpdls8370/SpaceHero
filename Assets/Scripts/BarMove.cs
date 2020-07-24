@@ -13,7 +13,7 @@ public class BarMove : MonoBehaviour
 
     private float initSpeed;
 
-    private float ballSpeed;
+    public float ballSpeed;
     private float xForce, yForce;
 
     private float gap;
@@ -22,7 +22,8 @@ public class BarMove : MonoBehaviour
 
     void Start()
     {
-        speed = GameManagement.barSpeed;
+        speed = 4;
+        //speed = GameManagement.barSpeed;
         ballSpeed = GameObject.Find("Ball").GetComponent<BallMove>().speed;
         initSpeed = speed;
         leftWallCol = false;

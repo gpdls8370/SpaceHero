@@ -18,7 +18,7 @@ public class StartBtn : MonoBehaviour
         }
         if (GameManagement.ballSpeed <= 0f)
         {
-            GameManagement.ballSpeed = 300f;
+            GameManagement.ballSpeed = 200f;
         }
 
         SceneManager.LoadScene("MainScene");

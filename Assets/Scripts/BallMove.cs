@@ -9,7 +9,8 @@ public class BallMove : MonoBehaviour
 
     void Start()
     {
-        speed = GameManagement.ballSpeed;
+        speed = 200;
+        //speed = GameManagement.ballSpeed;
 
         BallRb = GetComponent<Rigidbody2D>();
         BallRb.isKinematic = false;

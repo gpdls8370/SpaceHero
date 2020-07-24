@@ -13,7 +13,7 @@ public class ResetBtn : MonoBehaviour
         barSpeedField.GetComponent<InputField>().text = "4";
         GameManagement.barSpeed = 4f;
 
-        ballSpeedField.GetComponent<InputField>().text = "300";
-        GameManagement.ballSpeed = 300f;
+        ballSpeedField.GetComponent<InputField>().text = "200";
+        GameManagement.ballSpeed = 200f;
     }
 }

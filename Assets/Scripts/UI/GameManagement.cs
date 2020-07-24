@@ -12,7 +12,7 @@ public class GameManagement : MonoBehaviour
     private void Awake()
     {
         barSpeed = 4f;
-        ballSpeed = 300f;
+        ballSpeed = 200f;
 
         optionCanvas = GameObject.Find("OptionCanvas");
     }
