@@ -11,6 +11,7 @@ TagManager:
   - AlienIce
   - ItemIce
   - Brick
+  - BombBall
   layers:
   - Default
   - TransparentFX
@@ -25,8 +26,8 @@ TagManager:
   - Brick
   - Alien
   - Item
-  - 
-  - 
+  - GhostBall
+  - BrickOnly
   - 
   - 
   - 

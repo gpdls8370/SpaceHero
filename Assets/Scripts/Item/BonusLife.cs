@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class BonusLife : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(collision.gameObject.name == "Bar")
+        {
+            if(GameObject.Find("GameManager").GetComponent<Life>().playerLife < GameObject.Find("GameManager").GetComponent<Life>().maxPlayerLife)
+            GameObject.Find("GameManager").GetComponent<Life>().playerLife++;
+            GameObject.Find("GameManager").GetComponent<Life>().LifeIcon[GameObject.Find("GameManager").GetComponent<Life>().playerLife - 1].SetActive(true);
+        }
     }
 }

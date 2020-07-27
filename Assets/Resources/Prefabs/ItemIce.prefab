@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 918662362746297921}
   - component: {fileID: 918662362746297922}
   - component: {fileID: 918662362746297923}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ItemIce
   m_TagString: ItemIce
   m_Icon: {fileID: 0}
@@ -122,6 +122,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca8e0a9db3d93747add56a494118929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  brickLife: 1
+  alienIceLife: 1
+  itemIceLife: 1
 --- !u!1 &4933577825365579812
 GameObject:
   m_ObjectHideFlags: 0

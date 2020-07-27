@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8979556837509369011}
   - component: {fileID: 890027300673101279}
   - component: {fileID: 6646097154973670380}
+  - component: {fileID: 8310898596564684239}
   m_Layer: 12
   m_Name: BonusLife
   m_TagString: Untagged
@@ -141,5 +142,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ba47a1dd81e2de48afdabbb3592dafa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8310898596564684239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6301237815381221380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bcc45be7aae1414a9f5fc288a7e9920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

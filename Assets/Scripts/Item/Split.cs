@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class Split : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    GameObject originalBall;
+    GameObject[] splitBalls;
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if(collision.gameObject.name == "Bar")
+        {
+            originalBall = GameObject.FindGameObjectWithTag("Ball");
+            splitBalls = new GameObject[8];
+
+            for(int i = 0; i < 8; i++)
+            {
+                splitBalls[i] = Instantiate(Resources.Load("Prefabs/Item/SplitBall"), originalBall.transform.position, Quaternion.identity) as GameObject;
+                splitBalls[i].transform.rotation = Quaternion.Euler(0, 0, 45 * i);
+                splitBalls[i].gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
+                splitBalls[i].gameObject.GetComponent<Rigidbody2D>().AddForce(splitBalls[i].transform.right * collision.gameObject.GetComponent<BarMove>().ballSpeed);
+            }
+
+           Destroy(originalBall.gameObject);
+        }
     }
 }

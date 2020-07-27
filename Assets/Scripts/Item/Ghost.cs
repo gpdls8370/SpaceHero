@@ -1,18 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Ghost : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (collision.gameObject.name == "Bar")
+        {
+            GameObject.FindGameObjectWithTag("Ball").layer = 13;
+            GameObject.Find("GhostBallTrigger").GetComponent<GhostBallTrigger>().ghostBall = true;
+        }
     }
 }

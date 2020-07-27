@@ -79,6 +79,20 @@ public class BrickSpawn : MonoBehaviour
         }     
     }
 
+   void fallBricks(GameObject[] bricks)
+    {
+        for (int i = 0; i < bricks.Length; i++)
+        {
+            bricks[i].transform.Translate(new Vector2(0, -bricksDistanceY));
+
+            if (bricks[i].transform.position.y <= GameObject.FindGameObjectWithTag("Player").transform.position.y + bricksDistanceY)
+            {
+                Destroy(bricks[i].gameObject);
+            }
+        }
+
+    }
+
     IEnumerator SpawnBrick()
     {
         while (true)
@@ -90,20 +104,9 @@ public class BrickSpawn : MonoBehaviour
             allAlienIce = GameObject.FindGameObjectsWithTag("AlienIce");
             allitemIce = GameObject.FindGameObjectsWithTag("ItemIce");
 
-            allBricks.Concat(allAlienIce);
-            allBricks.Concat(allitemIce);
-
-            for (int i = 0; i < allBricks.Length; i++)
-            {
-                allBricks[i].transform.Translate(new Vector2(0, -bricksDistanceY));
-                
-                if (allBricks[i].transform.position.y <= GameObject.FindGameObjectWithTag("Player").transform.position.y + bricksDistanceY)
-                {
-                    Destroy(allBricks[i].gameObject);
-                }
-            }
-            
-            
+            fallBricks(allBricks);
+            fallBricks(allAlienIce);
+            fallBricks(allitemIce);
 
 
             //맨 윗줄은 새로운 랜덤 줄 생성

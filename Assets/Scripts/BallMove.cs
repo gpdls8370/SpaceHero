@@ -17,9 +17,12 @@ public class BallMove : MonoBehaviour
         BallRb.AddForce(new Vector2(0, speed));
     }
 
-   
-    void Update()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if(collision.gameObject.name == "ButtomWall")
+        {
+            GameObject.Find("GameManager").GetComponent<Life>().playerLife--;
+            GameObject.Find("GameManager").GetComponent<Life>().LifeIcon[GameObject.Find("GameManager").GetComponent<Life>().playerLife].SetActive(false);
+        } 
     }
 }
