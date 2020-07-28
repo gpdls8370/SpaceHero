@@ -12,6 +12,7 @@ TagManager:
   - ItemIce
   - Brick
   - BombBall
+  - Wall
   layers:
   - Default
   - TransparentFX
