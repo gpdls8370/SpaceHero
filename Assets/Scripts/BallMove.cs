@@ -15,8 +15,7 @@ public class BallMove : MonoBehaviour
 
     void Start()
     {
-        speed = 200;
-        //speed = GameManagement.ballSpeed;
+        speed = GameManager.ballSpeed;
 
         BallRb = GetComponent<Rigidbody2D>();
         BallRb.isKinematic = false;
@@ -38,11 +37,14 @@ public class BallMove : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        /*
+        // 바닥 닿았을 때 처리
         if(collision.gameObject.name == "ButtomWall")
         {
             GameObject.Find("GameManager").GetComponent<Life>().playerLife--;
             GameObject.Find("GameManager").GetComponent<Life>().LifeIcon[GameObject.Find("GameManager").GetComponent<Life>().playerLife].SetActive(false);
         }
+        */
 
         if (collision.gameObject.tag == "Wall" || collision.gameObject.name == "Bar")
         {
@@ -50,7 +52,7 @@ public class BallMove : MonoBehaviour
         }
         if (collision.gameObject.tag == "Stone" && !Alerted.Things["Stone"])
         {
-            ShowAlert("Stone", "경고 메시지 예시!!");
+            ShowAlert("Stone", "경고 메시지 예시!! (여기를 수정하세요)");
         }
     }
 }

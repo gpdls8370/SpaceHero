@@ -15,6 +15,7 @@ public class AlienMove : MonoBehaviour
 
         else if (collision.gameObject.name == "RightWall")
         {
+            GameManager.coin += 1;
             Destroy(this.gameObject);
         }
     }
