@@ -48,12 +48,15 @@ public class BallMove : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        /*
+        // 바닥 닿았을 때 처리
         if(collision.gameObject.name == "ButtomWall")
         {
             this.transform.Translate(new Vector2(0, -0.05f));
             BallRb.velocity = Vector2.zero;
             ballDisappearAni.enabled = true;
         }
+        */
 
         if (collision.gameObject.tag == "Wall" || collision.gameObject.name == "Bar")
         {
@@ -61,7 +64,7 @@ public class BallMove : MonoBehaviour
         }
         if (collision.gameObject.tag == "Stone" && !Alerted.Things["Stone"])
         {
-            ShowAlert("Stone", "경고 메시지 예시!!");
+            ShowAlert("Stone", "경고 메시지 예시!! (여기를 수정하세요)");
         }
     }
 }

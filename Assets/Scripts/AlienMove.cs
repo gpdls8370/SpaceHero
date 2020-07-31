@@ -22,6 +22,7 @@ public class AlienMove : MonoBehaviour
 
         else if (collision.gameObject.name == "RightWall")
         {
+            GameManager.coin += 1;
             Destroy(this.gameObject);
             SavedAlien = Instantiate(Resources.Load("Prefabs/SavedAlien"), new Vector2(Random.Range(540, 680), Random.Range(45, 145)), Quaternion.identity) as GameObject;
             SavedAlien.transform.SetParent(GameObject.Find("SavedThings").transform);

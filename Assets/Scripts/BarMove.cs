@@ -26,6 +26,10 @@ public class BarMove : MonoBehaviour
     void Start()
     {
         speed = GameManager.barSpeed;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 80d62d6ebe4eb3760cd95be356593fa6e0d8c6c3
         ballSpeed = GameObject.Find("Ball").GetComponent<BallMove>().speed;
         initSpeed = speed;
         leftWallCol = false;
@@ -52,11 +56,14 @@ public class BarMove : MonoBehaviour
             playerAni.enabled = true;
             transform.Translate(Vector3.right * speed * Time.deltaTime);
         }
+<<<<<<< HEAD
         else
         {
             playerSpr.sprite = playerInitialSprite;
             playerAni.enabled = false;
         }
+=======
+>>>>>>> 80d62d6ebe4eb3760cd95be356593fa6e0d8c6c3
         if (Input.GetKeyDown(KeySetting.keys[KeyAction.BOOST]))
         {
             KeyDown_L(true);
