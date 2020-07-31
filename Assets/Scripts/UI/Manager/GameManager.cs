@@ -20,6 +20,10 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance;
 
+    public static bool ballisIceTraped;
+    public static int ballCount;
+
+
     // 시작 값 조정
     private void Awake()
     {
@@ -44,5 +48,9 @@ public class GameManager : MonoBehaviour
         barSpeed = 4f;
         ballSpeed = 300f;
         timeScale = 1f;
+
+
+        ballisIceTraped = false;
+        ballCount = 1;
     }
 }

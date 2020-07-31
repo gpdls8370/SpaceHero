@@ -20,6 +20,7 @@ public class BuyBtn : MonoBehaviour
         if (GameManager.coin >= thingsPrice)
         {
             GameManager.coin -= thingsPrice;
+            Store.unlockItem.Add(thingsName);
             Store.Things[thingsName] = true;
             StoreManager.ChangeSell();
         }

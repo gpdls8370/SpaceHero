@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2039290030370934023}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.02, y: 0.02, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalPosition: {x: -0.002, y: -0.002, z: 0}
+  m_LocalScale: {x: 1.088313, y: 0.89476115, z: 1}
   m_Children: []
   m_Father: {fileID: 4112092507604542573}
   m_RootOrder: 0
@@ -70,7 +70,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 5fe1fc684beaee946bd9c191ec566349, type: 3}
+  m_Sprite: {fileID: 3457133006956316947, guid: c008c61bc302ee340b5a8416cdbcea34,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.5254902}
   m_FlipX: 0
   m_FlipY: 0
@@ -108,8 +109,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4112092507604542561}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.8, y: 1.3999999, z: 0}
-  m_LocalScale: {x: 0.56565076, y: 0.6221696, z: 1}
+  m_LocalPosition: {x: -1.67, y: 4.01, z: 0}
+  m_LocalScale: {x: 2.2, y: 2.2, z: 1}
   m_Children:
   - {fileID: 2440030662766917161}
   m_Father: {fileID: 0}
@@ -154,7 +155,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: eba582ef8a04cac47be4d7275de36898, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 51ca6408e9373e44e86f41f86e55f0d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -182,14 +183,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.63, y: 0.89}
+    oldSize: {x: 0.28, y: 0.28}
     newSize: {x: 1.63, y: 0.89}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.63, y: 0.89}
+  m_Size: {x: 0.28, y: 0.28}
   m_EdgeRadius: 0
 --- !u!114 &4112092507604542574
 MonoBehaviour:
@@ -203,4 +204,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca8e0a9db3d93747add56a494118929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brickLife: 1
+  brickLife: 0

@@ -6,8 +6,8 @@ using UnityEngine;
 public class BrickManager : MonoBehaviour
 {
     //4x4 블럭
-    private int maxRow = 4;
-    private int maxCol = 4;
+    public int maxRow = 4;
+    public int maxCol = 4;
 
     public float initialBrickSpawnPosX;
     public float initialBrickSpawnPosY;

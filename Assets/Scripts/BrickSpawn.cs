@@ -7,32 +7,41 @@ using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+public static class LevelData
+{
+    public static float[] stageFallTime = new float[4];
+    public static int[] stageBrickLife = new int[4];
+}
+
 public class BrickSpawn : MonoBehaviour
 {
-    //바꿔줘야 하는 부분   최대 4x8 블럭
-    private int maxCol = 4;
-    private int maxRow = 8;
-    private int howManyType = 9;
-    private int howManyStage = 5;
+    //바꿔줘야 하는 부분
+    public int maxCol;
+    public int maxRow;
+    public int howManyType;
+    public int howManyStage;
     //
 
     public GameObject[] typeBlock;
     private GameObject[] allBricks;
+    private GameObject[] allTraps;
     private GameObject[] allAlienIce;
     private GameObject[] allitemIce;
 
     private int[] nextSpawnBrickLine;   //다음에 생성될 블럭 라인(타입으로 입력)
     private int randomNum;
 
-    private float[] stageFallTime;
-    private float nowFallTime;
+    private string nowRandomItem;
+    private GameObject ParentItemBlock;
+    private GameObject ChildItem;
 
     public float initialBrickSpawnPosX;
     public float initialBrickSpawnPosY;
     public float bricksDistanceX;    //블록 사이 간격
     public float bricksDistanceY;
 
-    public int nowLevel;
+    private int nowLevel;
+    public float nowFallTime;
 
     public List<int[,]> LevelsData { get; set; }
 
@@ -40,23 +49,24 @@ public class BrickSpawn : MonoBehaviour
     void Start()
     {
         nextSpawnBrickLine = new int[maxCol];
-        stageFallTime = new float[howManyStage];
+        LevelData.stageFallTime = new float[howManyStage];
 
         //시작하면 레벨데이터 불러오기
         this.LevelsData = this.LoadLevelsData();
-        nowFallTime = stageFallTime[0];
+        nowFallTime = LevelData.stageFallTime[GameManager.stageNum - 1];
         StartCoroutine("SpawnBrick");
 
+        nowLevel = 0;
     }
 
     private void randomNextBrick()
     {
         //현재 레벨의 brick 데이터를 불러옴 : 0:타입 1:확률 x n줄
-        int[,] nowLevelBrickData = LevelsData[nowLevel];
+        int[,] nowLevelBrickData = LevelsData[GameManager.stageNum -1];
 
         for (int col = 0; col < maxCol; col++)
         {
-            randomNum = Random.Range(1, 100);
+            randomNum = Random.Range(1, 101);   //끝값은 제외됨
 
             for (int i = 0; i < howManyType; i++)
             {
@@ -85,12 +95,29 @@ public class BrickSpawn : MonoBehaviour
         {
             bricks[i].transform.Translate(new Vector2(0, -bricksDistanceY));
 
+            //박스가 플레이어보다 내려왔을 경우
             if (bricks[i].transform.position.y <= GameObject.FindGameObjectWithTag("Player").transform.position.y + bricksDistanceY)
             {
                 Destroy(bricks[i].gameObject);
+                GameObject.Find("GameManager").GetComponent<Life>().stageOver();
             }
         }
 
+    }
+
+    void randomItem()
+    {
+        if (Store.unlockItem.Count != 0)
+        {
+            nowRandomItem = Store.unlockItem[Random.Range(0, Store.unlockItem.Count)];  //아이템 스트링 하나 랜덤 선택
+            ChildItem = Instantiate(Resources.Load("Prefabs/Item/" + nowRandomItem), ParentItemBlock.transform.position, Quaternion.identity) as GameObject;
+            ChildItem.transform.SetParent(ParentItemBlock.transform);
+            
+            if (nowRandomItem == "바길게" || nowRandomItem == "바짧게" || nowRandomItem == "생명")
+            {
+                ChildItem.GetComponent<Animator>().enabled = false;
+            }
+        }
     }
 
     IEnumerator SpawnBrick()
@@ -101,10 +128,12 @@ public class BrickSpawn : MonoBehaviour
 
             //한줄씩 내리고
             allBricks = GameObject.FindGameObjectsWithTag("Brick");
+            allTraps = GameObject.FindGameObjectsWithTag("Trap");
             allAlienIce = GameObject.FindGameObjectsWithTag("AlienIce");
             allitemIce = GameObject.FindGameObjectsWithTag("ItemIce");
 
             fallBricks(allBricks);
+            fallBricks(allTraps);
             fallBricks(allAlienIce);
             fallBricks(allitemIce);
 
@@ -113,7 +142,12 @@ public class BrickSpawn : MonoBehaviour
             randomNextBrick();
             for (int col = 0; col < maxCol; col++) 
             {
-                Instantiate(typeBlock[nextSpawnBrickLine[col]], new Vector2(initialBrickSpawnPosX + bricksDistanceX * col, initialBrickSpawnPosY), Quaternion.identity);
+                 ParentItemBlock = Instantiate(typeBlock[nextSpawnBrickLine[col]], new Vector2(initialBrickSpawnPosX + bricksDistanceX * col, initialBrickSpawnPosY), Quaternion.identity);
+                
+                if (nextSpawnBrickLine[col] == 4)    //아이템 얼음인 경우에
+                {
+                    randomItem();  //자식으로 아이템 랜덤 생성
+                }
             }
 
         }
@@ -145,13 +179,20 @@ public class BrickSpawn : MonoBehaviour
                 {
                     levelsData.Add(nowLevelData);
                     nowRow = 0;
+                    nowLevel++;
                     nowLevelData = new int[maxRow, maxCol];
                 }
 
                 else if (line.IndexOf("s") != -1)
                 {
                     string[] bricks = line.Split('s');
-                    stageFallTime[nowLevel] = float.Parse(bricks[0]);
+                    LevelData.stageFallTime[nowLevel] = float.Parse(bricks[0]);
+                }
+
+                else if (line.IndexOf("h") != -1)
+                {
+                    string[] bricks = line.Split('h');
+                    LevelData.stageBrickLife[nowLevel] = int.Parse(bricks[0]);
                 }
 
                 else

@@ -9,7 +9,8 @@ using UnityEngine.UI;
 public static class Store
 {
     public static Dictionary<string, bool> Things = new Dictionary<string, bool> { };
-    public static string[] defaultThings = new string[] { "폭탄", "생명" };
+    public static List<string> unlockItem = new List<string>();
+    public static string[] defaultThings = new string[] { "폭탄", "생명" };     //추가 아이템 이름 : 분열, 유령, 공작게, 공크게, 바짧게, 바길게
 }
 
 public class StoreManager : MonoBehaviour

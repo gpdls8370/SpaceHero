@@ -15,7 +15,7 @@ public class Bomb : MonoBehaviour
             if (GameObject.Find("ItemManager").GetComponent<BombManager>().BombCount < maxBombCount)
             {
                 GameObject.Find("ItemManager").GetComponent<BombManager>().BombCount++;
-                GameObject.Find("BombIcon").GetComponent<BombManager>().BombIcon[GameObject.Find("ItemManager").GetComponent<BombManager>().BombCount - 1].SetActive(true);   //아이콘 보이게
+                GameObject.Find("ItemManager").GetComponent<BombManager>().BombIcon[GameObject.Find("ItemManager").GetComponent<BombManager>().BombCount - 1].SetActive(true);   //아이콘 보이게
             }
         }
     }

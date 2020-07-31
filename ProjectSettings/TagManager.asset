@@ -11,8 +11,9 @@ TagManager:
   - AlienIce
   - ItemIce
   - Brick
-  - BombBall
   - Wall
+  - BombBall
+  - Trap
   layers:
   - Default
   - TransparentFX
@@ -27,9 +28,9 @@ TagManager:
   - Brick
   - Alien
   - Item
-  - GhostBall
+  - Wall
   - BrickOnly
-  - 
+  - Trap
   - 
   - 
   - 

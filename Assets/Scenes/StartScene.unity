@@ -264,7 +264,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 17631668}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43bb422ea0b30d440933fe1d9f17df8f, type: 3}
+  m_Script: {fileID: 11500000, guid: bb7e42fbbc0b3144bb58d6d192a8523b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &17631674
@@ -754,12 +754,12 @@ GameObject:
   - component: {fileID: 256191121}
   - component: {fileID: 256191120}
   - component: {fileID: 256191119}
+  - component: {fileID: 256191126}
   - component: {fileID: 256191125}
   - component: {fileID: 256191124}
+  - component: {fileID: 256191123}
   - component: {fileID: 256191127}
   - component: {fileID: 256191128}
-  - component: {fileID: 256191123}
-  - component: {fileID: 256191126}
   m_Layer: 5
   m_Name: OptionCanvas
   m_TagString: Untagged
@@ -857,7 +857,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 256191118}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b6e4121a7b5d6a4caf9b1f542bb7728, type: 3}
+  m_Script: {fileID: 11500000, guid: 6df72d2870319ec47bebee29670ce1b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   masterVolume: {fileID: 259795285}
@@ -898,7 +898,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 256191118}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c08c1e6f4417b38429a50d9fe366a4ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b78bad9731052a4e9f4677f7f9454cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &256191127
@@ -1918,10 +1918,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1044821874}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 720340c1e3ea45d42913fe37e3df52d8, type: 3}
+  m_Script: {fileID: 11500000, guid: e2d03a23052b7f047a4ede8079801b2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageCanvas: {fileID: 1055174376}
+  mainCanvas: {fileID: 1055174376}
 --- !u!114 &1044821880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2263,8 +2263,8 @@ GameObject:
   - component: {fileID: 1180422584}
   - component: {fileID: 1180422590}
   - component: {fileID: 1180422589}
-  - component: {fileID: 1180422588}
   - component: {fileID: 1180422587}
+  - component: {fileID: 1180422588}
   m_Layer: 0
   m_Name: ExitButton
   m_TagString: Untagged
@@ -2334,7 +2334,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1180422587}
         m_MethodName: MoveToMainMenu
         m_Mode: 1
         m_Arguments:
@@ -2391,7 +2391,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1180422582}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a38df1663aca2bb4286521e01c37e6ec, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f93cb7293da1944e8402adc04dddf74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1180422588
@@ -3271,7 +3271,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1754879322}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a38df1663aca2bb4286521e01c37e6ec, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f93cb7293da1944e8402adc04dddf74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1754879328
@@ -3647,7 +3647,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1819697189}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59bdd043bfdb07d4284f9b85dc2cdc5e, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a8660b06dd37f8488c4a17a289f8b5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1819697195

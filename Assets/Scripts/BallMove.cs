@@ -13,16 +13,27 @@ public class BallMove : MonoBehaviour
     private Rigidbody2D BallRb;
     private AudioSource sound;
 
+    private Animator ballDisappearAni;
+
     void Start()
     {
-        speed = 200;
-        //speed = GameManagement.ballSpeed;
+        speed = GameManager.ballSpeed;
 
         BallRb = GetComponent<Rigidbody2D>();
         BallRb.isKinematic = false;
         BallRb.AddForce(new Vector2(0, speed));
 
+        ballDisappearAni = this.gameObject.GetComponent<Animator>();
+
         sound = gameObject.GetComponent<AudioSource>();
+    }
+
+    private void Update()
+    {
+        if (ballDisappearAni.GetCurrentAnimatorStateInfo(0).length < ballDisappearAni.GetCurrentAnimatorStateInfo(0).normalizedTime)
+        {   
+            GameObject.Find("GameManager").GetComponent<Life>().minusLife(this.gameObject);
+        }
     }
 
     private void ShowAlert(string tagName, string message)
@@ -35,13 +46,13 @@ public class BallMove : MonoBehaviour
         alertCanvas.SetActive(true);
     }
 
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.name == "ButtomWall")
         {
-            GameObject.Find("GameManager").GetComponent<Life>().playerLife--;
-            GameObject.Find("GameManager").GetComponent<Life>().LifeIcon[GameObject.Find("GameManager").GetComponent<Life>().playerLife].SetActive(false);
+            this.transform.Translate(new Vector2(0, -0.05f));
+            BallRb.velocity = Vector2.zero;
+            ballDisappearAni.enabled = true;
         }
 
         if (collision.gameObject.tag == "Wall" || collision.gameObject.name == "Bar")

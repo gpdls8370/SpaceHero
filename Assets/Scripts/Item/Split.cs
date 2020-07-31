@@ -11,6 +11,8 @@ public class Split : MonoBehaviour
     {
         if(collision.gameObject.name == "Bar")
         {
+            GameManager.ballCount = GameManager.ballCount + 7;
+
             originalBall = GameObject.FindGameObjectWithTag("Ball");
             splitBalls = new GameObject[8];
 

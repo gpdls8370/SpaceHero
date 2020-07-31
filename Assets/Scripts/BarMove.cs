@@ -19,15 +19,20 @@ public class BarMove : MonoBehaviour
     private float gap;
     private Rigidbody2D ballRb;
 
+    private Animator playerAni;
+    private SpriteRenderer playerSpr;
+    private Sprite playerInitialSprite;
 
     void Start()
     {
-        speed = 4;
-        //speed = GameManagement.barSpeed;
+        speed = GameManager.barSpeed;
         ballSpeed = GameObject.Find("Ball").GetComponent<BallMove>().speed;
         initSpeed = speed;
         leftWallCol = false;
         rightWallCol = false;
+        playerAni = GameObject.Find("Player").GetComponent<Animator>();
+        playerSpr = GameObject.Find("Player").GetComponent<SpriteRenderer>();
+        playerInitialSprite = playerSpr.sprite;
     }
 
     void Update()
@@ -37,26 +42,29 @@ public class BarMove : MonoBehaviour
 
     private void barMovement()
     {
-        if (Input.GetKey(KeyCode.LeftArrow) && !leftWallCol && !Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeySetting.keys[KeyAction.LEFT]) && !leftWallCol && !Input.GetKey(KeySetting.keys[KeyAction.RIGHT]))
         {
+            playerAni.enabled = true;
             transform.Translate(Vector2.left * speed * Time.deltaTime);
         }
-        else if (Input.GetKey(KeyCode.RightArrow) && !rightWallCol && !Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(KeySetting.keys[KeyAction.RIGHT]) && !rightWallCol && !Input.GetKey(KeySetting.keys[KeyAction.LEFT]))
         {
-            transform.Translate(Vector2.right * speed * Time.deltaTime);
+            playerAni.enabled = true;
+            transform.Translate(Vector3.right * speed * Time.deltaTime);
         }
-        if (Input.GetKeyDown(KeyCode.L))
+        else
+        {
+            playerSpr.sprite = playerInitialSprite;
+            playerAni.enabled = false;
+        }
+        if (Input.GetKeyDown(KeySetting.keys[KeyAction.BOOST]))
         {
             KeyDown_L(true);
         }
-        if (Input.GetKeyUp(KeyCode.L))
+        if (Input.GetKeyUp(KeySetting.keys[KeyAction.BOOST]))
         {
             KeyDown_L(false);
         }
-
-        //물리 약간 적용
-        //transform.Translate(new Vector2(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0));
-
     }
 
     private void KeyDown_L(bool boostOn)
@@ -75,15 +83,24 @@ public class BarMove : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
+        ballRb = collision.gameObject.GetComponent<Rigidbody2D>();
+
         //막대가 공이랑 부딪히면
         if (collision.gameObject.tag == "Ball")
-        { 
+        {
+            if (GameManager.ballisIceTraped == true)
+            {
+                GameManager.ballisIceTraped = false;
+            }
+
+            ballRb.isKinematic = false;
+            ballRb.gravityScale = 0;
+
             Vector2 hitpoint = collision.contacts[0].point;
             Vector2 barCenterPoint = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y);
 
             //공 충돌지점 - 바 중간 == gap (중간부터 얼마나 멀리에서 충돌했는지)
             gap =  hitpoint.x - barCenterPoint.x;
-            ballRb = collision.gameObject.GetComponent<Rigidbody2D>();
 
             ballRb.velocity = Vector2.zero;
             //ballRb.AddForce(new Vector2(gap * bounceDegree , ballSpeed);

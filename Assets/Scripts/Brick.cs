@@ -5,6 +5,12 @@ using UnityEngine;
 public class Brick : MonoBehaviour
 {
     public int brickLife;
+    private Transform childItem;
+
+    private void Start()
+    {
+        brickLife = LevelData.stageBrickLife[GameManager.stageNum - 1];
+    }
 
     private void hitBrick()
     {
@@ -12,6 +18,10 @@ public class Brick : MonoBehaviour
         if (brickLife <= 0)
         {
             if (this.gameObject.tag == "Brick")
+            {
+                Destroy(this.gameObject);
+            }
+            if (this.gameObject.tag == "Trap")
             {
                 Destroy(this.gameObject);
             }
@@ -25,7 +35,12 @@ public class Brick : MonoBehaviour
             else if (this.gameObject.tag == "ItemIce")
             {
                 Destroy(this.gameObject);
-                Instantiate(Resources.Load("Prefabs/Item"), new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
+                if (transform.childCount != 0)
+                {
+                    childItem = Instantiate(transform.GetChild(0), new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
+                    childItem.localScale = new Vector2(0.6f, 0.8f);
+                    childItem.GetComponent<Rigidbody2D>().isKinematic = false;
+                }
             }
         }   
     }
