@@ -35,12 +35,12 @@
 공이 바닥에 닿거나 함정에 걸리면 목숨이 깎이며, 목표 Save만큼 구출하면 스테이지를 클리어할 수 있습니다.
 
 <div>
-<img width="500" height="280" src="https://user-images.githubusercontent.com/46310524/216773007-d0348176-9b1e-405a-b9cf-cac5734c88e3.png">
-<img width="500" height="280" src="https://user-images.githubusercontent.com/46310524/216773390-2ede3edf-8106-430e-a9d6-a861641d2ac2.png">
+<img width="400" height="200" src="https://user-images.githubusercontent.com/46310524/216773007-d0348176-9b1e-405a-b9cf-cac5734c88e3.png">
+<img width="400" height="200" src="https://user-images.githubusercontent.com/46310524/216773390-2ede3edf-8106-430e-a9d6-a861641d2ac2.png">
 <div>
 <div>
-<img width="500" height="280" src="https://user-images.githubusercontent.com/46310524/216773465-685f9667-bb0d-493a-b420-bb26a9888b31.png">
-<img width="500" height="280" src="https://user-images.githubusercontent.com/46310524/216773510-c929a5a6-8b9c-427e-8390-68a611d6cc7e.png">
+<img width="400" height="200" src="https://user-images.githubusercontent.com/46310524/216773465-685f9667-bb0d-493a-b420-bb26a9888b31.png">
+<img width="400" height="200" src="https://user-images.githubusercontent.com/46310524/216773510-c929a5a6-8b9c-427e-8390-68a611d6cc7e.png">
 <div>
 
 **총 4개의 스테이지로 이루어져 있습니다. 방해 블록들을 피해 친구들을 구하고 우주의 영웅이 되어보세요!**
