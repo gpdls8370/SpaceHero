@@ -11,7 +11,7 @@ public class BombRange : MonoBehaviour
         collision.gameObject.GetComponent<Brick>().brickLife--;
         if(collision.gameObject.GetComponent<Brick>().brickLife <= 0)
         {
-            if (collision.gameObject.tag == "Brick")
+            if (collision.gameObject.tag == "Stone" || collision.gameObject.tag == "Ice")
             {
                 Destroy(collision.gameObject);
             }

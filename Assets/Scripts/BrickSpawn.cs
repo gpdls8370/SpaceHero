@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -23,7 +24,8 @@ public class BrickSpawn : MonoBehaviour
     //
 
     public GameObject[] typeBlock;
-    private GameObject[] allBricks;
+    private GameObject[] allStones;
+    private GameObject[] allIces;
     private GameObject[] allTraps;
     private GameObject[] allAlienIce;
     private GameObject[] allitemIce;
@@ -62,7 +64,7 @@ public class BrickSpawn : MonoBehaviour
     private void randomNextBrick()
     {
         //현재 레벨의 brick 데이터를 불러옴 : 0:타입 1:확률 x n줄
-        int[,] nowLevelBrickData = LevelsData[GameManager.stageNum -1];
+        int[,] nowLevelBrickData = LevelsData[GameManager.stageNum - 1];
 
         for (int col = 0; col < maxCol; col++)
         {
@@ -86,10 +88,10 @@ public class BrickSpawn : MonoBehaviour
             {
                 nextSpawnBrickLine[col] = 0;
             }
-        }     
+        }
     }
 
-   void fallBricks(GameObject[] bricks)
+    void fallBricks(GameObject[] bricks)
     {
         for (int i = 0; i < bricks.Length; i++)
         {
@@ -112,7 +114,7 @@ public class BrickSpawn : MonoBehaviour
             nowRandomItem = Store.unlockItem[Random.Range(0, Store.unlockItem.Count)];  //아이템 스트링 하나 랜덤 선택
             ChildItem = Instantiate(Resources.Load("Prefabs/Item/" + nowRandomItem), ParentItemBlock.transform.position, Quaternion.identity) as GameObject;
             ChildItem.transform.SetParent(ParentItemBlock.transform);
-            
+
             if (nowRandomItem == "바길게" || nowRandomItem == "바짧게" || nowRandomItem == "생명")
             {
                 ChildItem.GetComponent<Animator>().enabled = false;
@@ -127,12 +129,14 @@ public class BrickSpawn : MonoBehaviour
             yield return new WaitForSeconds(nowFallTime);       //기다렸다가
 
             //한줄씩 내리고
-            allBricks = GameObject.FindGameObjectsWithTag("Brick");
+            allStones = GameObject.FindGameObjectsWithTag("Stone");
+            allIces = GameObject.FindGameObjectsWithTag("Ice");
             allTraps = GameObject.FindGameObjectsWithTag("Trap");
             allAlienIce = GameObject.FindGameObjectsWithTag("AlienIce");
             allitemIce = GameObject.FindGameObjectsWithTag("ItemIce");
 
-            fallBricks(allBricks);
+            fallBricks(allStones);
+            fallBricks(allIces);
             fallBricks(allTraps);
             fallBricks(allAlienIce);
             fallBricks(allitemIce);
@@ -140,10 +144,10 @@ public class BrickSpawn : MonoBehaviour
 
             //맨 윗줄은 새로운 랜덤 줄 생성
             randomNextBrick();
-            for (int col = 0; col < maxCol; col++) 
+            for (int col = 0; col < maxCol; col++)
             {
-                 ParentItemBlock = Instantiate(typeBlock[nextSpawnBrickLine[col]], new Vector2(initialBrickSpawnPosX + bricksDistanceX * col, initialBrickSpawnPosY), Quaternion.identity);
-                
+                ParentItemBlock = Instantiate(typeBlock[nextSpawnBrickLine[col]], new Vector2(initialBrickSpawnPosX + bricksDistanceX * col, initialBrickSpawnPosY), Quaternion.identity);
+
                 if (nextSpawnBrickLine[col] == 4)    //아이템 얼음인 경우에
                 {
                     randomItem();  //자식으로 아이템 랜덤 생성
@@ -159,7 +163,10 @@ public class BrickSpawn : MonoBehaviour
         TextAsset levelText = Resources.Load("levels") as TextAsset;
 
         //먼저 "줄 바꿈" 기준으로 줄을 나눠서 한줄씩 string 배열에 저장 : string 기준으로 나눌때는 RemoveEmptyEntries를 해줘야함(빈칸 제거) 
-        string[] rows = levelText.text.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+        //string[] rows = levelText.text.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+        StringReader sr = new StringReader(levelText.text);
+
+        string line = sr.ReadLine();
 
         //임시 데이터 리스트(하나씩 불러와서 입력할거임)
         List<int[,]> levelsData = new List<int[,]>();
@@ -168,10 +175,9 @@ public class BrickSpawn : MonoBehaviour
         int nowRow = 0;
 
         //줄의 수 만큼 탐색 반복
-        for (int row = 0; row < rows.Length; row++)
+        while (line != null)
         {
             //한줄씩 검사
-            string line = rows[row];
 
             if (line.IndexOf("#") == -1)    //#있는 부분은 무시
             {
@@ -195,6 +201,12 @@ public class BrickSpawn : MonoBehaviour
                     LevelData.stageBrickLife[nowLevel] = int.Parse(bricks[0]);
                 }
 
+                else if (line.Length == 0)
+                {
+                    sr.Close();
+                    return levelsData;
+                }
+
                 else
                 {
                     //string[] brickData = line.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
@@ -211,6 +223,7 @@ public class BrickSpawn : MonoBehaviour
                     nowRow++;   //다음줄 탐색
                 }
             }
+            line = sr.ReadLine();
         }
 
         return levelsData;

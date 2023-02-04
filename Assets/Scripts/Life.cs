@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.SceneManagement;
 
 public class Life : MonoBehaviour
 {
@@ -21,11 +22,13 @@ public class Life : MonoBehaviour
     public void stageOver()
     {
         //게임오버 (추가해야함)
-        Application.Quit();
+        SceneManager.LoadScene("StageScene");
+        //Application.Quit();
+        /*
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
-
+        */
     }
 
     public void minusLife(GameObject damageBall)

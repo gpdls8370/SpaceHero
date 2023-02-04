@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2720384501456373690}
   - component: {fileID: 2720384501456373691}
   - component: {fileID: 2720384501456373688}
-  - component: {fileID: 2720384501456373689}
   - component: {fileID: 2452410610949205827}
+  - component: {fileID: 6728749007532867980}
   m_Layer: 15
   m_Name: HealBricks
   m_TagString: Trap
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2720384501456373686}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.02, y: 0.22, z: 0}
+  m_LocalPosition: {x: 0.699, y: 0.704, z: 0}
   m_LocalScale: {x: 2.2, y: 2.2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 33b7da027a4aa734fa1cea74efd69d8a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d7d6a090b012e9c4da08e6d02dd91ebb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,28 +101,15 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.28, y: 0.28}
+    oldSize: {x: 0.27, y: 0.27}
     newSize: {x: 1.63, y: 0.89}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.28, y: 0.28}
+  m_Size: {x: 0.27, y: 0.27}
   m_EdgeRadius: 0
---- !u!114 &2720384501456373689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2720384501456373686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dca8e0a9db3d93747add56a494118929, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  brickLife: 1
 --- !u!114 &2452410610949205827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,3 +122,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b5a87d6bf531e54d97ba8a047229d8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &6728749007532867980
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2720384501456373686}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2d35c75a33098b846a1d34d80ef67795, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

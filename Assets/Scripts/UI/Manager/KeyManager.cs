@@ -5,12 +5,12 @@ using UnityEngine;
 
 public enum KeyAction { LEFT, RIGHT, BOOST, KEYCOUNT };
 
-// 기본: 좌측 화살표, 우측 화살표, L키
+// 기본: 좌측 화살표, 우측 화살표, Space키
 // 키셋팅 안 바뀌는 거 같으면 Game View 밖을 누른 후 한영키 누르고 재시도
 public static class KeySetting
 {
     public static Dictionary<KeyAction, KeyCode> keys = new Dictionary<KeyAction, KeyCode> { };
-    public static KeyCode[] defaultKeys = new KeyCode[] { KeyCode.LeftArrow, KeyCode.RightArrow, KeyCode.L };
+    public static KeyCode[] defaultKeys = new KeyCode[] { KeyCode.LeftArrow, KeyCode.RightArrow, KeyCode.Space };
 }
 
 public class KeyManager : MonoBehaviour

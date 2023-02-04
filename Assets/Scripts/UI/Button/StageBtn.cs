@@ -28,7 +28,7 @@ public class StageBtn : MonoBehaviour
             GameManager.currentLife = 3;
             GameManager.maxLife = 3;
             GameManager.barSpeed = 4f;
-            GameManager.ballSpeed = 350f;
+            GameManager.ballSpeed = 300f;
         }
         else if (stageNum == 3)
         {
@@ -38,17 +38,17 @@ public class StageBtn : MonoBehaviour
             GameManager.currentLife = 3;
             GameManager.maxLife = 3;
             GameManager.barSpeed = 4f;
-            GameManager.ballSpeed = 400f;
+            GameManager.ballSpeed = 300f;
         }
         else if (stageNum == 4)
         {
             GameManager.stageNum = 4;
             GameManager.currentSaveNum = 0;
-            GameManager.targetSaveNum = 15;
+            GameManager.targetSaveNum = 20;
             GameManager.currentLife = 3;
-            GameManager.maxLife = 3;
+            GameManager.maxLife = 1;
             GameManager.barSpeed = 4f;
-            GameManager.ballSpeed = 500f;
+            GameManager.ballSpeed = 300f;
         }
         else
         {

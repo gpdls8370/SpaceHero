@@ -157,4 +157,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minusSpeed: 150
-  plusScale: 0.75
+  plusScale: 2.7

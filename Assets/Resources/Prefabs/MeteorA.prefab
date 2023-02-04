@@ -13,11 +13,10 @@ GameObject:
   - component: {fileID: 1166993155839211287}
   - component: {fileID: 1166993155839211284}
   - component: {fileID: 221806983151760404}
-  - component: {fileID: 1166993155839211285}
   - component: {fileID: -7553212156796691575}
   m_Layer: 10
   m_Name: MeteorA
-  m_TagString: Brick
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -227,19 +226,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1166993155839211285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1166993155839211282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b44bf85c6580d394c9da5619ff7abf40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  brickLife: 1
 --- !u!114 &-7553212156796691575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,3 +239,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brickLife: 1
+  initialBrickLife: 0
+  isCracked: 0
+  isHealing: 0

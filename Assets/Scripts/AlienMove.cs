@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class AlienMove : MonoBehaviour
@@ -22,9 +23,22 @@ public class AlienMove : MonoBehaviour
 
         else if (collision.gameObject.name == "RightWall")
         {
-            GameManager.coin += 1;
             Destroy(this.gameObject);
-            SavedAlien = Instantiate(Resources.Load("Prefabs/SavedAlien"), new Vector2(Random.Range(540, 680), Random.Range(45, 145)), Quaternion.identity) as GameObject;
+            //SavedAlien = Instantiate(Resources.Load("Prefabs/SavedAlien"), new Vector2(Random.Range(540, 680), Random.Range(45, 145)), Quaternion.identity) as GameObject;
+            //float x = 363.34f,y= -151f;
+            //float x=GameObject.Find("GameCanvas").GetComponent<RectTransform>().position.x+ GameObject.Find("SavedThings").GetComponent<RectTransform>().position.x;
+            //float y= GameObject.Find("GameCanvas").GetComponent<RectTransform>().position.y + GameObject.Find("SavedThings").GetComponent<RectTransform>().position.y;
+            GameManager.currentSaveNum = GameManager.currentSaveNum + 1;
+
+            if (GameManager.currentSaveNum == GameManager.targetSaveNum)
+            {
+                SceneManager.LoadScene("StageScene");
+            }
+            float width = GameObject.Find("SavedThings").GetComponent<RectTransform>().rect.width/2;
+            float height = GameObject.Find("SavedThings").GetComponent<RectTransform>().rect.height/2;
+            float x = GameObject.Find("SavedThings").GetComponent<RectTransform>().position.x;
+            float y =  GameObject.Find("SavedThings").GetComponent<RectTransform>().position.y;
+            SavedAlien = Instantiate(Resources.Load("Prefabs/SavedAlien"), new Vector2(Random.Range(x-width,x+width), Random.Range(y-height,y+height)), Quaternion.identity) as GameObject;
             SavedAlien.transform.SetParent(GameObject.Find("SavedThings").transform);
         }
     }

@@ -10,6 +10,7 @@ public class BlackHoleRange : MonoBehaviour
     private void Start()
     {
         StartCoroutine("sizeDown");
+        StartCoroutine("spinAni");
         StartCoroutine("Duration");
     }
 
@@ -29,9 +30,9 @@ public class BlackHoleRange : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
 
-        if (transform.localScale.x < 6.0f)
+        if (transform.localScale.x < 3.0f)
         {
-            transform.localScale = new Vector2(transform.localScale.x + 0.4f, transform.localScale.y + 0.4f);
+            transform.localScale = new Vector2(transform.localScale.x + 0.15f, transform.localScale.y + 0.15f);
             StartCoroutine("sizeUp");
         }
 
@@ -47,13 +48,22 @@ public class BlackHoleRange : MonoBehaviour
         
         if (transform.localScale.x > 0.8f)
         {
-            transform.localScale = new Vector2(transform.localScale.x - 0.4f, transform.localScale.y - 0.4f);
+            transform.localScale = new Vector2(transform.localScale.x - 0.15f, transform.localScale.y - 0.15f);
             StartCoroutine("sizeDown");
         }
 
         else
         {
             StartCoroutine("sizeUp");
+        }
+    }
+
+    IEnumerator spinAni()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.05f);
+            transform.Rotate(new Vector3(0, 0, 10));
         }
     }
 
@@ -65,5 +75,6 @@ public class BlackHoleRange : MonoBehaviour
 
         StopCoroutine("sizeUp");
         StopCoroutine("sizeDown");
+        StopCoroutine("spinAni");
     }
 }

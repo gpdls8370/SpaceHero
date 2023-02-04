@@ -28,12 +28,19 @@ public class BallMove : MonoBehaviour
         sound = gameObject.GetComponent<AudioSource>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if (ballDisappearAni.GetCurrentAnimatorStateInfo(0).length < ballDisappearAni.GetCurrentAnimatorStateInfo(0).normalizedTime)
-        {   
-            GameObject.Find("GameManager").GetComponent<Life>().minusLife(this.gameObject);
-        }
+        BallSpeedMaintain();
+    }
+
+    private void BallSpeedMaintain()
+    {
+        //Debug.Log(speed);
+    }
+
+    private void ballDisappearEvent()
+    {
+        GameObject.Find("GameManager").GetComponent<Life>().minusLife(this.gameObject);
     }
 
     private void ShowAlert(string tagName, string message)
@@ -48,15 +55,12 @@ public class BallMove : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        /*
-        // 바닥 닿았을 때 처리
         if(collision.gameObject.name == "ButtomWall")
         {
             this.transform.Translate(new Vector2(0, -0.05f));
             BallRb.velocity = Vector2.zero;
             ballDisappearAni.enabled = true;
         }
-        */
 
         if (collision.gameObject.tag == "Wall" || collision.gameObject.name == "Bar")
         {
@@ -64,7 +68,7 @@ public class BallMove : MonoBehaviour
         }
         if (collision.gameObject.tag == "Stone" && !Alerted.Things["Stone"])
         {
-            ShowAlert("Stone", "경고 메시지 예시!! (여기를 수정하세요)");
+            //ShowAlert("Stone", "경고 메시지 예시!!");
         }
     }
 }
